@@ -1,0 +1,27 @@
+<header>
+  <h1>Add card to</h1>
+  <i class="fi fi-sr-x" (click)="setShowCardForm()"></i>
+</header>
+<select name="" id=""  [(ngModel)]="deckToAdd" (change)="onChange($event)">
+  @for (deck of decks; track deck.id) {
+    <option [value]="deck.name">{{deck.name}}</option>
+  }
+</select>
+
+<form [formGroup]="cardForm">
+  <div class="field">
+    <h2>Front</h2>
+    <input type="text" class="name" required placeholder="who was the first human to travel into space?" formControlName="front"/>
+  </div>
+  <div class="field">
+    <h2>back</h2>
+    <input type="text" class="name" required placeholder="yuri gagarin" formControlName="back"/>
+  </div>
+  <div class="field">
+    <h2>additional (optional)</h2>
+    <input type="text" class="name" required placeholder="yuri gagarin was a soviet astronaut" formControlName="additional"/>
+  </div>
+  <div class="final-line">
+    <button type="submit" class="create" (click)="createCard()">Create</button>
+  </div>
+</form>

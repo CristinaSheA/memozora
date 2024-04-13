@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.deck {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  max-width: 400px;
+  width: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+}
+.deck h3 {
+  color: rgb(145, 145, 145);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.deck h2 {
+  font-size: 20px;
+  color: rgb(43, 43, 43);
+}

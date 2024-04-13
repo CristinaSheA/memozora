@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.content {
+  background-color: rgb(233, 236, 236);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+.finish {
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid rgb(171, 171, 171);
+  color: rgb(145, 145, 145);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 10px 20px;
+}
+
+.progress {
+  margin: 50px 0px;
+}
+progress {
+  width: 500px;
+}
+
+
+.card {
+  margin: 50px 0px;
+  color: rgb(37, 157, 145);
+  font-size: 1.5em;
+  line-height: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 38%;
+  width: 40%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+}
+
+.message {
+  color: rgb(69, 69, 69);
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.manage-buttons {
+  display: flex;
+}
+.manage-button {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 15px 70px;
+  border-radius: 20px;
+
+  background-color: rgb(37, 157, 145);
+  color: white;
+}

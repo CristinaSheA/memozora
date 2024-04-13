@@ -1,0 +1,43 @@
+<header>
+  <h1>Create new deck</h1>
+  <i class="fi fi-sr-x" (click)="closeForm()"></i>
+</header>
+
+<form [formGroup]="deckForm">
+  <div class="field">
+    <h2>Name</h2>
+    <input type="text" class="name" required placeholder="new deck" formControlName="deckName"/>
+  </div>
+  <div class="field">
+    <h2>additional</h2>
+    <div class="line">
+      <span class="text">Random Order<i class="fi fi-sr-info" (click)="showRandomOrder()"></i></span>
+      <label class="switch">
+        <input type="checkbox" formControlName="languageLearning"/>
+        <div class="slider round">
+          <span class="on"></span>
+          <span class="off"></span>
+        </div>
+      </label>
+    </div>
+    <div class="line">
+      <span class="text">
+        For language learning? <i class="fi fi-sr-info" (click)="showLanguageLearning()"></i>
+      </span>
+      <label class="switch">
+        <input type="checkbox" formControlName="randomOrder"/>
+        <div class="slider round">
+          <span class="on"></span>
+          <span class="off"></span>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div class="final-line">
+    @if(!showUpdateButton) {
+      <button type="submit" class="create" (click)="createDeck()">Create</button>
+    } @else {
+      <button type="submit" class="create" (click)="updateDeck()">update</button>
+    }
+  </div>
+</form>

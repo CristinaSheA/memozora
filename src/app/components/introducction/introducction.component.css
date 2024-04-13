@@ -1,0 +1,277 @@
+.color-part {
+  background-color: hsl(207, 71%, 12%);
+  color: white;
+  height: 720px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+button {
+  border: 0;
+}
+.logo:hover,
+header button:hover,
+.main button:hover, .get-started button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.logo {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+.logo h1 {
+  font-size: 20px;
+  margin-left: 10px;
+}
+header button, a {
+  color: white;
+  border-radius: 2px;
+  font-weight: bold;
+}
+.sign-up-button {
+  padding: 7px;
+  background-color: hsl(174, 62%, 38%);
+  margin-right: 15px;
+}
+.login-button {
+  padding: 7px 15px;
+  border: 1px solid white;
+  background: none;
+}
+
+.main {
+  margin: 30px auto;
+  max-width: 700px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main h2 {
+  color: white;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 48px;
+  margin-bottom: 28px;
+}
+.main p {
+  opacity: 0.9;
+  margin: auto;
+  margin-bottom: 38px;
+  max-width: 520px;
+}
+.main button, .get-started button {
+  font-weight: bold;
+  color: white;
+  padding: 17px;
+  border-radius: 100px;
+  background-color: hsl(174, 62%, 38%);
+}
+
+.img {
+  margin-top: 20px;
+  position: absolute;
+  bottom: -10;
+  left: 30%;
+}
+.img img {
+  width: 600px;
+}
+.no-color-part {
+  max-width: 900px;
+  margin: 100px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-color-part h1 {
+  color: hsl(0, 0%, 27%);
+}
+.description {
+  font-size: 18px;
+  max-width: 520px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid hsl(0, 0%, 92%);
+}
+.no-color-part h2 {
+  font-size: 32px;
+  color: hsl(0, 0%, 27%);
+}
+.comments {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid hsl(0, 0%, 92%);
+}
+.comment {
+  margin: 20px;
+  max-width: 350px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 1px 7px rgba(0, 0, 0, 0.1);
+  background-color: #f2f0e6;
+}
+.comment i {
+  font-size: 20px;
+  color: #42413b;
+}
+.author {
+  color: #478b83;
+}
+
+.steps-how-it-works {
+  border-bottom: 1px solid hsl(0, 0%, 92%);
+}
+.step {
+  border-radius: 20px;
+  margin: 40px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: #1cc1b1;
+  width: 100%;
+  padding: 18px 18px 0 18px;
+}
+.step-number {
+  width: 20px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 100px;
+  background-color: white;
+  color: #1cc1b1;
+}
+.step h3 {
+  font-size: 32px;
+}
+.step p {
+  font-size: 18px;
+  max-width: 520px;
+}
+.step img {
+  height: 360px;
+}
+
+.spaced-repetition {
+  display: flex;
+}
+.spaced-repetition p {
+  color: #4f4f4f;
+  font-size: 18px;
+  max-width: 400px;
+  text-align: left;
+}
+.spaced-repetition-img {
+  margin-right: 20px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1), 0px 6px 12px rgba(0, 0, 0, 0.07);
+}
+.spaced-repetition img {
+  width: 250px;
+}
+
+.more-features {
+  width: 100%;
+  background-color: #d5efec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.more-features h2 {
+  font-size: 32px;
+  color: hsl(174,58%,32%);
+}
+.features {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+.feature {
+  margin: 15px 10px;
+  align-items: center;
+  display: flex;
+}
+.icon {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1cc1b1;
+  color: #fff;
+  padding: 10px 13px;
+  border-radius: 100px;
+  font-size: 30px;
+}
+.text h4 {
+  margin: 0;
+  font-size: 22px;
+  color: hsl(174,62%,38%);
+}
+.text p {
+  color: hsl(0, 0%, 57%);
+  font-size: 16px;
+}
+
+.get-started {
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15),0 3px 6px rgba(0,0,0,.10);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 50px auto;
+}
+.light-logo {
+  background-color: #d5efec;
+  border-radius: 100px;
+  padding: 10px;
+  width: 70px;
+}
+.light-logo img {
+  width: 70px;
+}
+.get-started h2 {
+  margin: 0;
+  color: hsl(207, 22%, 17%);
+  font-size: 22px;
+}
+.get-started p {
+  margin-bottom: 30px;
+  color: hsl(0, 0%, 57%);
+  font-size: 16px;
+}
+
+footer {
+  background-color: #efefef;
+  display: flex;
+  text-align: center;
+  padding: 20px;
+  justify-content: space-between;
+}
+.links {
+  display: flex;
+}
+.option {
+  cursor: pointer;
+  margin: 0px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: hsl(0, 0%, 57%);
+  font-size: 12px;
+}

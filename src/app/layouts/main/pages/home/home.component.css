@@ -1,0 +1,133 @@
+:host {
+  display: block;
+}
+
+h2 {
+  font-size: 15px;
+  color: rgb(123, 123, 123);
+}
+.table {
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+}
+.memory-levels {
+  max-width: 200px;
+  justify-content: space-between;
+  display: flex;
+}
+.memory-levels i {
+  cursor: pointer;
+  transition: 0.35s;
+  color: rgb(94, 94, 94);
+}
+.memory-levels i:hover {
+  opacity: 0.9;
+}
+.level {
+  font-size: 20px;
+  flex-direction: column;
+}
+.level h3 {
+  margin: 0;
+  font-size: 12px;
+}
+.low {
+  color: rgb(76, 195, 183);
+}
+.mid {
+  color: rgb(46, 153, 141);
+}
+.high {
+  color: rgb(24, 111, 102);
+}
+
+.learn {
+  margin-right: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(37, 157, 145);
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  padding: 14px 27px 14px 18px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
+}
+.decks {
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+deck {
+  margin-right: 10px;
+}
+.new-deck {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px dashed rgb(171, 171, 171);
+  color: rgb(145, 145, 145);
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 30px 20px;
+  max-width: 440px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+}
+
+.card-panel {
+  width: 100%;
+}
+.card-panel,
+.cards-to-learn {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  z-index: 3;
+  background-color: #d5efec;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+  max-width: 300px;
+}
+.cards-to-learn {
+  text-align: center;
+}
+.cards-to-learn h1 {
+  color: rgb(94, 94, 94);
+  font-size: 18px;
+  font-weight: 800;
+}
+.card-panel__option {
+  margin-bottom: 20px;
+  background-color: white;
+}
+.cards-to-learn__option, .card-panel__option {
+  text-transform: capitalize;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.35s;
+  padding: 20px;
+  color: rgb(120, 120, 120);
+  font-size: 16px;
+  font-weight: 500;
+}
+.cards-to-learn__option:hover {
+  background-color: white;
+}
+.card-panel__option:hover {
+  opacity: 0.8;
+}
+deck-form, card-form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+  background-color: #d5efec;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  z-index: 3;
+  max-width: 500px;
+  width: 95%;
+}

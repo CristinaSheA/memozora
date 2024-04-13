@@ -1,0 +1,73 @@
+:host {
+  display: block;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(94, 94, 94);
+
+}
+h1 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+i {
+  cursor: pointer;
+}
+
+.field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.field h2 {
+  color: rgb(164, 164, 164);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  font-size: 12px;
+}
+.field h2 i {
+  margin-left: 10px;
+}
+input {
+  outline: none;
+  width: 95%;
+  border: 0;
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+input::placeholder {
+  font-style: italic;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 16px;
+  color: rgb(94, 94, 94);
+  font-weight: 600px;
+  letter-spacing: 0.02em;
+  opacity: 0.1;
+}
+
+select {
+  border: 0;
+  padding: 10px 20px;
+}
+.final-line {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+.create {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  background-color: rgb(37, 157, 145);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px 30px;
+}
