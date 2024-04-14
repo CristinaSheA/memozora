@@ -82,14 +82,20 @@ i {
   justify-content: right;
   width: 100%;
 }
-.create {
+.create, .update, .delete {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
-  background-color: rgb(37, 157, 145);
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 6px;
   padding: 10px 30px;
+}
+.create, .update {
+  background-color: rgb(37, 157, 145);
+}
+.delete {
+  background-color: indianred;
+  margin-right: 10px;
 }
 
 

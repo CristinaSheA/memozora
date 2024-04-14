@@ -37,7 +37,8 @@
     @if(!showUpdateButton) {
       <button type="submit" class="create" (click)="createDeck()">Create</button>
     } @else {
-      <button type="submit" class="create" (click)="updateDeck()">update</button>
+      <button type="submit" class="delete" (click)="deleteDeck(deck)">Delete</button>
+      <button type="submit" class="update" (click)="updateDeck()">Update</button>
     }
   </div>
 </form>

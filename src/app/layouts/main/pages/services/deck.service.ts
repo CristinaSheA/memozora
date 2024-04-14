@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Deck } from '../interfaces/deck';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -56,6 +57,24 @@ export class DeckService {
 
       updatedDeck.editMode = false;
     }
+  }
+  public deleteTask(deckToDelete: Deck): void {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Are you sure you want to delete the deck '{{deckToDelete.name}}'? This will operation can not be undone.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'rgb(81 138 88)',
+      cancelButtonColor: 'rgb(186, 73, 73)',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result: { isConfirmed: any; }) => {
+      if (result.isConfirmed) {
+        this.decks.update((currentDeckList: Deck[]) => {
+          return currentDeckList.filter((deck) => deck.id !== deckToDelete.id);
+        });
+        // this.updateLocalStorage();
+      }
+    });
   }
   constructor() {}
 }

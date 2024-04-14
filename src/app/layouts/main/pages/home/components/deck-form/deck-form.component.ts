@@ -34,7 +34,6 @@ export class DeckFormComponent {
   private readonly deckService = inject(DeckService);
   private readonly fb = inject(FormBuilder);
   public showUpdateButton: boolean = false;
-
   public deckForm: FormGroup = this.fb!.group({
     deckName: ['', [Validators.required, Validators.minLength(1)]],
     languageLearning: [false],
@@ -92,6 +91,11 @@ export class DeckFormComponent {
     );
     this.hideShowDeckForm.emit()
   }
+  public deleteDeck(deck: Deck) {
+    this.deckService?.deleteTask(deck)
+    this.hideShowDeckForm.emit()
+  }
+  
 
   public closeForm() {
     this.hideShowDeckForm.emit(); // Emit false to hide the form
