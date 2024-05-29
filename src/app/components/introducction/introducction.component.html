@@ -5,8 +5,8 @@
       <h1>Memozora</h1>
     </div>
     <div class="account-options">
-      <button class="sign-up-button" routerLink="/sign-up">Sign up</button>
-      <button class="login-button" routerLink="/login">Login</button>
+      <button class="sign-up-button" routerLink="/account-form">Sign up</button>
+      <button class="login-button" (click)="setKindOfForm('Sign up')" routerLink="/account-form">Login</button>
     </div>
   </header>
   <div class="main">
@@ -17,7 +17,7 @@
       schedules based on your progress. Featuring multi-language dictionaries,
       various quiz formats, etc.
     </p>
-    <button routerLink="/sign-up">Start Learning (for free)</button>
+    <button routerLink="/account-form"(click)="setKindOfForm('Sign up')" >Start Learning (for free)</button>
   </div>
   <div class="img">
     <img src="../assets/img/mock-pc-mobile4.png" alt="" />

@@ -6,40 +6,6 @@ h2 {
   font-size: 15px;
   color: rgb(123, 123, 123);
 }
-.table {
-  padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
-}
-.memory-levels {
-  max-width: 200px;
-  justify-content: space-between;
-  display: flex;
-}
-.memory-levels i {
-  cursor: pointer;
-  transition: 0.35s;
-  color: rgb(94, 94, 94);
-}
-.memory-levels i:hover {
-  opacity: 0.9;
-}
-.level {
-  font-size: 20px;
-  flex-direction: column;
-}
-.level h3 {
-  margin: 0;
-  font-size: 12px;
-}
-.low {
-  color: rgb(76, 195, 183);
-}
-.mid {
-  color: rgb(46, 153, 141);
-}
-.high {
-  color: rgb(24, 111, 102);
-}
 
 .learn {
   margin-right: 20px;
@@ -71,14 +37,14 @@ deck {
   margin-bottom: 10px;
   padding: 30px 20px;
   max-width: 440px;
-  width: 100%;
+  width: 200%;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
 }
 
 .card-panel {
-  width: 100%;
+  width: 200%;
 }
 .card-panel,
 .cards-to-learn {
@@ -129,5 +95,5 @@ deck-form, card-form {
   left: 30%;
   z-index: 3;
   max-width: 500px;
-  width: 95%;
+  width: 200%;
 }

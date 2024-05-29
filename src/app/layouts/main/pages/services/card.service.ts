@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, WritableSignal, inject, signal } from '@angular/core';
 import { Card } from '../interfaces/card';
 import { Deck } from '../interfaces/deck';
 import { DeckService } from './deck.service';
@@ -8,7 +8,9 @@ import { DeckService } from './deck.service';
 })
 export class CardService {
   private readonly deckService = inject(DeckService);
-  public totalCards = 0
+  public totalCards: number = 0;
+  public numberCardsToLearn: WritableSignal<number | string> = signal(5);
+
   public createCard(
     deckId: number,
     front: string,
@@ -25,8 +27,8 @@ export class CardService {
     newCard.back = back;
     newCard.additional = additional;
 
-    fsaf!.cards.push(newCard)
+    fsaf!.cards.push(newCard);
 
-    this.totalCards++
+    this.totalCards++;
   }
 }

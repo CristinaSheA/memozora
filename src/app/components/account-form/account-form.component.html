@@ -1,0 +1,46 @@
+<div class="content">
+  <img
+    src="../../../assets/img/dark-logo.png"
+    alt=""
+    routerLink="/introduction"
+  />
+  @if(kindOfForm === 'Log in') {
+  <h1>Log in</h1>
+  } @else {
+  <h1>Sign up</h1>
+  }
+
+  <form action="" [formGroup]="form">
+    <div class="field">
+      <h2>Email</h2>
+      <input
+        type="email"
+        placeholder="example@mail.com"
+        formControlName="email"
+      />
+    </div>
+    <div class="field">
+      <h2>Password</h2>
+      <input type="password" formControlName="password" />
+    </div>
+
+    @if(kindOfForm === 'Log in') {
+    <button type="submit" routerLink="/app/home" (click)="logIn()">
+      Log in
+    </button>
+    } @else {
+    <button type="submit" routerLink="/app/home" (click)="createAccount()">
+      Sign up
+    </button>
+    }
+  </form>
+  @if(kindOfForm === 'Log in') {
+  <div class="question">Don't have an account?</div>
+  <div class="other-kind-account" (click)="setKindOfForm('Sign up')">
+    Create account
+  </div>
+  } @else {
+  <div class="question">Already have an account?</div>
+  <div class="other-kind-account" (click)="setKindOfForm('Log in')">Log in</div>
+  }
+</div>

@@ -36,6 +36,7 @@ progress {
 
 
 .card {
+  flex-direction: column;
   margin: 50px 0px;
   color: rgb(37, 157, 145);
   font-size: 1.5em;
@@ -49,7 +50,10 @@ progress {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
-
+.additional {
+  font-size: 15px;
+  color:rgb(171, 171, 171);
+}
 .message {
   color: rgb(69, 69, 69);
   font-size: 20px;

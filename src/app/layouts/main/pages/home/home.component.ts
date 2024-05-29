@@ -8,7 +8,8 @@ import { DeckComponent } from './components/deck/deck.component';
 import { Deck } from '../interfaces/deck';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { CardService } from '../services/card.service';
+import { AccountService } from '../../../../components/services/account.service';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -29,19 +30,45 @@ export class HomeComponent {
   public showCardsToLearn: boolean = false;
   public showCardPanel: boolean = false;
   public showCardForm: boolean = false;
-  public orderDecks!: string;
-  public deckService = inject(DeckService);
+  private readonly accountService = inject(AccountService);
+  public readonly deckService = inject(DeckService);
+  public readonly cardService = inject(CardService);
+  public decksToShow!: Deck[]
 
-  public onChange(event: any) {
-    this.orderDecks = event.target.value;
-    console.log('47677', this.orderDecks);
-    console.log(this.deckService?.decks());
-    let s = this.deckService!.decks().sort()
-    this.deckService!.decks.set(s)
-
-    console.log(this.deckService?.decks());
+  
+  ngOnInit() {
+    const deck = this.deckService!.decks().find((deck: { id: any; }) => deck.id === this.accountService!.currentAccountId());
+    if (!deck) return
+  
+    this.decksToShow = [deck]
+    console.log(this.accountService?.currentAccountId());
+    console.log(this.getCookie('currentAccountId'));
+    
+  }
+  constructor() {
+    let fsf = this.getCookie('currentAccountId')
+    let decks = this.deckService!.decks().find((deck: { id: any; }) => deck.id === fsf);
+    if (!decks) return
+    console.log(decks);
+     ;
+    console.log(this.getCookie('currentAccountId'));
   }
 
+  public getCookie(cname: string) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
   public editDeck(deck: Deck): void {
     deck.editMode = true;
     this.setShowDeckForm(true);
@@ -66,7 +93,8 @@ export class HomeComponent {
     this.showCardPanel = false;
   }
   public setShowCardsToLearn(value: boolean) {
-    this.showCardsToLearn = value;
+  this.showCardsToLearn = value;
+    this.showCardPanel = false
   }
   public setShowCardPanel(value: boolean) {
     this.showCardPanel = value;
@@ -75,8 +103,13 @@ export class HomeComponent {
     this.showCardForm = value;
     this.showCardPanel = false;
   }
-
+  public setCardsToLearn(value: number | string) {
+    this.cardService!.numberCardsToLearn.set(value)
+  }
   public get decks() {
     return this.deckService?.decks();
+  }
+  public get cards() {
+    return this.cardService!.totalCards
   }
 }

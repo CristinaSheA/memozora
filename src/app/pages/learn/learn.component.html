@@ -1,29 +1,53 @@
 <div class="content">
-  <button class="finish"><i class="fi fi-sr-angle-double-small-right"></i> Finish</button>
+  <button class="finish" routerLink="/app/home" >
+    <i class="fi fi-sr-angle-double-small-right"></i> Finish
+  </button>
 
   <div class="progress">
-    <progress id="file" max="100" value="70">70%</progress> 1/3
+    <progress id="file" max="100" [value]="currentProgress">currentProgress</progress> {{currentCardIndex + 1}}/{{
+      cardsToLearn.length
+    }}
   </div>
-  s
+
+  {{ firstCardDeckName }}
 
   <div class="card">
-    card Name
+    @if(flipedCard) {
+    <div class="back">{{ cardsToLearn[currentCardIndex].back }}</div>
+    @if(cardsToLearn[currentCardIndex].additional) {
+    <div class="additional">
+      {{ cardsToLearn[currentCardIndex].additional }}
+    </div>
+    } } @else{
+    {{ cardsToLearn[currentCardIndex].front }}
+    }
   </div>
 
-  <div class="message">Guess the answer</div>
+  <div class="message">{{ message }}</div>
 
   <div class="manage-buttons">
-    <button class="flip manage-button">
+    @if(showFlipButton) {
+    <button class="flip manage-button" (click)="setFlipedCard(true)">
       <i class="fi fi-sr-rotate-right"></i>
     </button>
-    <button class="no manage-button">
+    } @if(showYesNoButton) {
+    <button
+      class="no manage-button"
+      (click)="yesNoButton('no')"
+    >
       <i class="fi fi-sr-cross"></i>
     </button>
-    <button class="yes manage-button">
+    <button
+      class="yes manage-button"
+      (click)="yesNoButton('yes')"
+    >
       <i class="fi fi-sr-check"></i>
     </button>
-    <button class="next manage-button">
+    } @if(showNextButton) {
+
+    <button class="next manage-button" (click)="goToNextCard()">
       <i class="fi fi-sr-arrow-right"></i>
     </button>
+    }
   </div>
 </div>

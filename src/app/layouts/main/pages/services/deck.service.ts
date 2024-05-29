@@ -1,11 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { Deck } from '../interfaces/deck';
 import Swal from 'sweetalert2';
+import { AccountService } from '../../../../components/services/account.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeckService {
+  private readonly accountService = inject(AccountService);
   public decks = signal<Deck[]>([]);
 
   public createDeck(
@@ -14,7 +16,7 @@ export class DeckService {
     randomOrder: boolean
   ): void {
     const newDeck: Deck = {
-      id: Date.now(),
+      id: this.accountService!.currentAccountId(),
       cards: [],
       name: '',
       languageLearning: false,
@@ -26,11 +28,9 @@ export class DeckService {
     newDeck.languageLearning = languageLearning;
     newDeck.randomOrder = randomOrder;
 
-
     this.decks.update((currentDecks: Deck[]) => {
       return [...currentDecks, newDeck];
     });
-    // this.updateLocalStorage();
   }
   public updateDeck(
     name: string,
@@ -46,12 +46,12 @@ export class DeckService {
         ...taskInEditMode,
         name: name,
         languageLearning: languageLearning,
-        randomOrder: randomOrder
+        randomOrder: randomOrder,
       };
 
       this.decks.update((currentDecks: Deck[]) => {
         return currentDecks.map((d) =>
-        d.id === updatedDeck.id ? updatedDeck : d
+          d.id === updatedDeck.id ? updatedDeck : d
         );
       });
 
@@ -67,12 +67,11 @@ export class DeckService {
       confirmButtonColor: 'rgb(81 138 88)',
       cancelButtonColor: 'rgb(186, 73, 73)',
       confirmButtonText: 'Yes, delete it!',
-    }).then((result: { isConfirmed: any; }) => {
+    }).then((result: { isConfirmed: any }) => {
       if (result.isConfirmed) {
         this.decks.update((currentDeckList: Deck[]) => {
           return currentDeckList.filter((deck) => deck.id !== deckToDelete.id);
         });
-        // this.updateLocalStorage();
       }
     });
   }

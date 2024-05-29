@@ -1,40 +1,11 @@
-<h2>Weekly Report</h2>
-
-<div class="table">
-  <div class="memory-levels">
-    <div class="level low">
-      <h3>Low</h3>
-      32
-    </div>
-    <div class="level mid">
-      <h3>Mid</h3>
-      0
-    </div>
-    <div class="level high">
-      <h3>High</h3>
-      1
-    </div>
-    <i class="fi fi-sr-info" (click)="showLevelInfo()"></i>
-  </div>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat facilis iste
-  ea eaque, nulla id fuga animi minima velit minus officiis eius praesentium
-  incidunt porro nesciunt. Aspernatur reiciendis at nam.
-</div>
-
 <h2>My decks</h2>
 <div>
-  <button class="learn" (click)="setShowCardsToLearn(true)" routerLink="/learn">
+  @if(cards) {
+  <button class="learn" (click)="setShowCardsToLearn(true)">
     <i class="fi fi-sr-rocket-lunch"></i>
     Learn All
   </button>
-  Sort by
-  <select name="" [(ngModel)]="orderDecks" id="" (change)="onChange($event)">
-    <option value="deck-name">Deck Name</option>
-    <option value="created-date">Created Date</option>
-    <option value="last-learnt-date">Last Learnt Date</option>
-    <option value="number-of-cards">Number of Cards</option>
-    <option value="number-of-cards">Number of due cards</option>
-  </select>
+  }
 </div>
 
 <div class="decks">
@@ -48,10 +19,12 @@
   ></deck-form>
   } @if (showCardPanel) {
   <div class="card-panel">
-    <div class="card-panel__option">
+    @if(cards) {
+    <div class="card-panel__option" (click)="setShowCardsToLearn(true)">
       <i class="fi fi-sr-rocket-lunch"></i>
       Start learning
     </div>
+    }
     <div class="card-panel__option" (click)="setShowCardForm(true)">
       <i class="fi fi-sr-plus"></i>
       add card
@@ -61,23 +34,45 @@
       edit deck
     </div>
   </div>
-  } 
-}
+  }
+  }
+  <button class="new-deck" (click)="setShowDeckForm(true)">
+    <i class="fi fi-sr-add"></i>
+    Create new deck
+  </button>
 </div>
-<button class="new-deck" (click)="setShowDeckForm(true)">
-  <i class="fi fi-sr-add"></i>
-  Create new deck
-</button>
-
 
 @if (showCardsToLearn) {
 <div class="cards-to-learn">
   <h1>How many cards to learn?</h1>
-  <div class="cards-to-learn__option">5</div>
-  <div class="cards-to-learn__option">10</div>
-  <div class="cards-to-learn__option">15</div>
-  <div class="cards-to-learn__option">All</div>
-  <div class="cards-to-learn__option">Custom...</div>
+  <div
+    class="cards-to-learn__option"
+    (click)="setCardsToLearn(5)"
+    routerLink="/learn"
+  >
+    5
+  </div>
+  <div
+    class="cards-to-learn__option"
+    (click)="setCardsToLearn(10)"
+    routerLink="/learn"
+  >
+    10
+  </div>
+  <div
+    class="cards-to-learn__option"
+    (click)="setCardsToLearn(15)"
+    routerLink="/learn"
+  >
+    15
+  </div>
+  <div
+    class="cards-to-learn__option"
+    (click)="setCardsToLearn('All')"
+    routerLink="/learn"
+  >
+    All
+  </div>
 </div>
 } @if (showDeckForm) {
 <deck-form
