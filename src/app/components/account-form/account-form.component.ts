@@ -9,6 +9,8 @@ import {
 } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-account-form',
@@ -22,6 +24,8 @@ export class AccountFormComponent {
   private readonly accountService = inject(AccountService);
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:3000/accounts';
 
 
   public form: FormGroup = this.fb!.group({
@@ -39,19 +43,24 @@ export class AccountFormComponent {
     this.accountService!.kindOfForm = value;
   }
   public createAccount() {
-    let emailValue = this.form.get('email')?.value;
-    let passwordValue = this.form.get('password')?.value;
-
     if (this.form.invalid) {
       return;
     }
-    this.accountService!.createAccount(emailValue, passwordValue);
-    console.log(this.accountService!.accounts());
+     
+    this.createQuery().subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
     this.router!.navigateByUrl('app/home')
-    document.cookie = "currentAccountId=" +  this.accountService!.currentAccountId();
   }
-
-
+  public createQuery(): Observable<any> {
+    let emailValue = this.form.get('email')?.value;
+    let passwordValue = this.form.get('password')?.value;
+    return this.http!.post(this.apiUrl, {
+      email: emailValue,
+      password: passwordValue,
+    });
+  }
 
   
   public logIn() {

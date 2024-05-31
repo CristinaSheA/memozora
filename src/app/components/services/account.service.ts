@@ -22,7 +22,7 @@ export class AccountService {
     }
     console.log('aft:', this.accounts());
   }
-  public kindOfForm: string = 'Log in';
+  public kindOfForm!: string
   public createAccount(email: string, password: string) {
     let date = new Date()
     const newAccount: Account = {
