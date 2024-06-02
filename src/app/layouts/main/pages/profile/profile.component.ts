@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CardService } from '../services/card.service';
 import { AccountService } from '../../../../components/services/account.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -16,12 +17,16 @@ import { AccountService } from '../../../../components/services/account.service'
 export class ProfileComponent {
   public cardService = inject(CardService);
   public accountService = inject(AccountService);
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:3000';
+
   public deleteAccount() {
+    
     return this.accountService?.deleteAccount()
   }
-  public get email() {
-    let acc = this.accountService!.accounts().find((acc) => acc.accountId === this.accountService?.currentAccountId());
-    return acc!.email
+  public email() {
+    // let acc = this.accountService!.accounts().find((acc) => acc.accountId === this.accountService?.currentAccountId());
+    // return acc!.email
   }
   public get totalCards() {
     return this.cardService?.totalCards

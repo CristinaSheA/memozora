@@ -41,57 +41,13 @@ export class AccountFormComponent {
   }
   public setKindOfForm(value: string) {
     this.accountService!.kindOfForm = value;
+    console.log(value);
+    
   }
   public createAccount() {
-    if (this.form.invalid) {
-      return;
-    }
-     
-    this.createQuery().subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
-    this.router!.navigateByUrl('app/home')
+    this.accountService!.createAccount(this.form)
   }
-  public createQuery(): Observable<any> {
-    let emailValue = this.form.get('email')?.value;
-    let passwordValue = this.form.get('password')?.value;
-    return this.http!.post(this.apiUrl, {
-      email: emailValue,
-      password: passwordValue,
-    });
-  }
-
-  
   public logIn() {
-    let emailValue = this.form.get('email')?.value;
-    let passwordValue = this.form.get('password')?.value;
-    if (this.form.invalid) {
-      return;
-    }
-    const accountToLogIn = this.accountService!.accounts().find(
-      (account) =>
-        account.email === emailValue && account.password === passwordValue
-    );
-
-    if (accountToLogIn) {
-      this.accountService!.currentAccountId.set(accountToLogIn.accountId);
-      this.router!.navigateByUrl('app/home')
-      console.log(this.accountService!.accounts());
-      document.cookie = "currentAccountId=" +  this.accountService!.currentAccountId();
-
-      const lastActivityFromLocalStorage = localStorage.getItem('lastActivity');
-      if (lastActivityFromLocalStorage) {
-        let fsaf = JSON.parse(lastActivityFromLocalStorage)
-        if (accountToLogIn.lastActivity !== fsaf) {
-          accountToLogIn.lastActivity === new Date().getDay()
-          localStorage.setItem('lastActivity', accountToLogIn.lastActivity.toString());
-          this.accountService!.daysEntered++
-        }
-      }
-    } else {
-      return;
-    }
-
+    this.accountService!.logIn(this.form)
   }
 }

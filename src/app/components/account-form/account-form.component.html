@@ -25,11 +25,11 @@
     </div>
 
     @if(kindOfForm === 'log-in') {
-    <button type="submit" routerLink="/app/home" (click)="logIn()">
+    <button type="submit" (click)="logIn()">
       Log in
     </button>
     } @else {
-    <button type="submit" routerLink="/app/home" (click)="createAccount()">
+    <button type="submit" (click)="createAccount()">
       Sign up
     </button>
     }
